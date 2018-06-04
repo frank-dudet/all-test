@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.frank.test.oauth2.mapper.UserMapper" >
+
+    <resultMap type="com.cn.frank.test.oauth2.domain.User" id="userMap">
+        <id property="id" column="id"/>
+        <result property="guid" column="guid"/>
+        <result property="archived" column="archived"/>
+        <!--<result property="createTime" column="create_time"/>-->
+
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="defaultUser" column="default_user"/>
+
+        <result property="password" column="password"/>
+        <result property="username" column="username"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+
+        <collection property="privileges" column="id" select="findPrivilegesByUserId" ofType="com.cn.frank.test.oauth2.domain.Privilege"/>
+
+    </resultMap>
+
+    <select id="getUserByUserId" parameterType="java.lang.String" resultMap="userMap">
+        select * from user_ where id = #{userId}
+    </select>
+
+    <select id="findByGuid" parameterType="java.lang.String" resultMap="userMap">
+        select * from user_ where  guid = #{guid}
+    </select>
+
+    <select id="findUserById" parameterType="java.lang.Integer" resultMap="userMap">
+        select * from user_ where id = #{id}
+    </select>
+
+    <select id="findPrivilegesByUserId" parameterType="java.lang.Integer" resultType="com.cn.frank.test.oauth2.domain.Privilege">
+        select privilege from user_privilege where user_id = #{userId}
+    </select>
+
+    <select id="findByUsername" parameterType="java.lang.String" resultMap="userMap">
+        select * from user_
+        where username = #{username}
+        and archived = 0
+    </select>
+    <select id="findUsersByUsername" parameterType="java.lang.String" resultMap="userMap">
+        select * from user_
+        <where>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR}
+            </if>
+        </where>
+        order by id
+    </select>
+
+    <insert id="saveUser" parameterType="com.cn.frank.test.oauth2.domain.User">
+        insert into user_(id,guid,archived,create_time,email,password,username,phone)
+        values
+        (SEQ_USER_.NEXTVAL,#{guid,jdbcType=VARCHAR},#{archived},sysdate,#{email,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateUser" parameterType="com.cn.frank.test.oauth2.domain.User" flushCache="true">
+        update user_ set
+        username = #{username},
+        password = #{password},
+        phone = #{phone},
+        email = #{email}
+        where guid = #{guid}
+    </update>
+
+</mapper>

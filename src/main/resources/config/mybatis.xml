@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="defaultStatementTimeout" value="1" />
+        <!-- 开启驼峰，开启后，只要数据库字段和对象属性名字母相同，无论中间加多少下划线都可以识别 -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+    <plugins>
+        <plugin interceptor="com.cn.frank.test.mybatis.plugin.PluginExample"></plugin>
+    </plugins>
+    <!--数据库配置 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+            </transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+                <property name="poolPingQuery" value="select getdate()" />
+                <property name="poolPingEnabled" value="true" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- mapper 拦截器配置 此配置必须，否则会报错 -->
+    <!-- <plugins> <plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperInterceptor">
+        <property name="IDENTITY" value="MYSQL" /> <property name="seqFormat" value="{0}.nextval"
+        /> <property name="mappers" value="tk.mybatis.mapper.common.Mapper" /> </plugin>
+        </plugins> -->
+    <mappers>
+        <mapper resource="config/mapper/TableFetchMapper.xml" />
+        <mapper resource="config/mapper/FinishOrderMapper.xml" />
+        <mapper resource="config/mapper/PosConfigMapper.xml" />
+        <mapper resource="config/mapper/CompareDBMapper.xml" />
+    </mappers>
+</configuration>
