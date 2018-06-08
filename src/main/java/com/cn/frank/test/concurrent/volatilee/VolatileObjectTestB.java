@@ -25,9 +25,9 @@ public class VolatileObjectTestB implements Runnable {
     @Override
     public void run() {
         long i = 0;
-        ObjectSubB objectSubB = objectB.getObjectSubB();
-
-        while (objectSubB.isFlag()) {
+//        ObjectSubB objectSubB = objectB.getObjectSubB();
+//        while (objectSubB.isFlag()) {
+        while (objectB.getObjectSubB().isFlag()) {
             i++;
 //            System.out.println("------------------");
         }
@@ -36,7 +36,7 @@ public class VolatileObjectTestB implements Runnable {
 
     public static void main(String[] args) throws InterruptedException {
         // 如果启动的时候加上-server 参数则会 输出 Java HotSpot(TM) Server VM
-        System.out.println(System.getProperty("java.vm.name"));
+//        System.out.println(System.getProperty("java.vm.name"));
 
         ObjectSubB objectSubB = new ObjectSubB();
         ObjectB objectB = new ObjectB();
@@ -46,9 +46,10 @@ public class VolatileObjectTestB implements Runnable {
         new Thread(test).start();
 
         Thread.sleep(1000);
-        objectSubB.setFlag(false);
+//        objectSubB.setFlag(false);
 //        objectB.getObjectSubB().setFlag(false);
 
+        new Thread(new StopClass(objectSubB)).start();
         Thread.sleep(1000);
         System.out.println("Main Thread " + objectSubB.isFlag());
     }
@@ -77,6 +78,20 @@ public class VolatileObjectTestB implements Runnable {
 
         public void setFlag(boolean flag) {
             this.flag = flag;
+        }
+    }
+
+    static class StopClass implements Runnable {
+
+        private ObjectSubB objectSubB;
+
+        public StopClass(ObjectSubB objectSubB) {
+            this.objectSubB = objectSubB;
+        }
+
+        @Override
+        public void run() {
+            objectSubB.setFlag(false);
         }
     }
 }

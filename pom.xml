@@ -334,6 +334,11 @@
       <version>2.0.7.RELEASE</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <version>3.6</version>
+    </dependency>
 
   </dependencies>
 
