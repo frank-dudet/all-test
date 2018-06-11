@@ -12,6 +12,7 @@ gen### Java template
 
 # Log file
 *.log
+target/
 
 # BlueJ files
 *.ctxt
