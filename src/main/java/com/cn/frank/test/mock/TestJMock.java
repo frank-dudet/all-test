@@ -9,5 +9,7 @@ public class TestJMock {
     public static void main(String[] args) {
 
         System.out.println("Test JMock");
+
+        System.out.println("add");
     }
 }
