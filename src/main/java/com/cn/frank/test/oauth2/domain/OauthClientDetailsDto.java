@@ -1,7 +1,7 @@
 package com.cn.frank.test.oauth2.domain;
 
 import com.cn.frank.test.oauth2.utils.GuidGenerator;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;

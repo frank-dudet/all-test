@@ -3,7 +3,7 @@ package com.cn.frank.test.oauth2.controller;
 import com.cn.frank.test.oauth2.domain.Privilege;
 import com.cn.frank.test.oauth2.domain.UserFormDto;
 import com.cn.frank.test.oauth2.service.UserService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

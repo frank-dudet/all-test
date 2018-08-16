@@ -2,7 +2,7 @@ package com.cn.frank.test.oauth2.utils;
 
 import com.cn.frank.test.oauth2.domain.OauthClientDetailsDto;
 import com.cn.frank.test.oauth2.service.OauthService;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

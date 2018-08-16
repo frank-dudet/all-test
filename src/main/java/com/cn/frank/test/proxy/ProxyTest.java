@@ -9,9 +9,9 @@ public class ProxyTest {
     public static void main(String[] args) {
         UserServiceImpl userService = new UserServiceImpl();
 
-        UserServiceJdkProxy jdkUserService = new UserServiceJdkProxy();
-        UserService jdkProxy = (UserService)jdkUserService.bind(userService);
-        jdkProxy.add();
+//        UserServiceJdkProxy jdkUserService = new UserServiceJdkProxy();
+//        UserService jdkProxy = (UserService)jdkUserService.bind(userService);
+//        jdkProxy.add();
 
         UserServiceImpl userService2 = new UserServiceImpl();
         UserServiceCgligProxy cglibUserService = new UserServiceCgligProxy();

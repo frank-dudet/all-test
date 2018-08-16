@@ -6,11 +6,11 @@ package com.cn.frank.test.gof.observer;
  */
 public interface Subject {
 
-    public void add(Observer observer);
+    void add(Observer observer);
 
-    public void remove(Observer observer);
+    void remove(Observer observer);
 
-    public void notifyObservers();
+    void notifyObservers();
 
-    public void operation();
+    void operation();
 }
