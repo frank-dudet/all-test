@@ -9,7 +9,7 @@ public class AnnotationTest {
     public static void main(String args[]) {
         System.out.println(ResponseCode.displayValue(ResponseCode.class, ResponseCode.FAILURE));
 
-        String s = "com.dudet.test.sss.ssssss";
+        String s = "com.dudet.test.sss";
 
         String t = s.replaceAll("\\.","/");
         System.out.println(t);
