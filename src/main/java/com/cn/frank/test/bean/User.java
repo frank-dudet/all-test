@@ -1,12 +1,14 @@
 package com.cn.frank.test.bean;
 
+import com.cn.frank.test.common.ToString;
+
 import java.io.Serializable;
 
 /**
  * Author: frank_du
  * Time : 2017/4/19 下午9:29
  */
-public class User implements Cloneable, Serializable {
+public class User  extends ToString implements Cloneable, Serializable {
 
     private static final long serialVersionUID = -2461845748472195645L;
 
@@ -56,15 +58,5 @@ public class User implements Cloneable, Serializable {
 
     public void setSchool(String school) {
         this.school = school;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", school='" + school + '\'' +
-                '}';
     }
 }
