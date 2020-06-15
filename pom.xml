@@ -11,7 +11,7 @@
   <properties>
     <!--version control-->
     <log4j.version>1.2.12</log4j.version>
-    <commons.collections.version>3.2</commons.collections.version>
+    <commons.collections.version>3.2.2</commons.collections.version>
     <commons.beanutils.version>1.9.3</commons.beanutils.version>
     <netty.version>5.0.0.Alpha2</netty.version>
     <spring.version>5.0.5.RELEASE</spring.version>
@@ -119,7 +119,7 @@
     <dependency>
       <groupId>commons-collections</groupId>
       <artifactId>commons-collections</artifactId>
-      <version>3.2</version>
+      <version>3.2.2</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
