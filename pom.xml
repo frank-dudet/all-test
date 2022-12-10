@@ -14,7 +14,7 @@
     <commons.collections.version>3.2</commons.collections.version>
     <commons.beanutils.version>1.9.3</commons.beanutils.version>
     <netty.version>5.0.0.Alpha2</netty.version>
-    <spring.version>5.0.5.RELEASE</spring.version>
+    <spring.version>6.0.0</spring.version>
     <mybatis.version>3.4.5</mybatis.version>
     <jetty.version>8.1.16.v20140903</jetty.version>
     <spring.security.version>5.0.5.RELEASE</spring.security.version>
